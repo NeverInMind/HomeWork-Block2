@@ -2,8 +2,12 @@ from AddressBook import *
 
 
 class Bot:
-    def __init__(self):
+    def __init__(self,  command_output: ConsoleOutputAbstract):
         self.book = AddressBook()
+        self.__output_processor = command_output
+    
+    def send_message(self, message) -> None:
+        self.__output_processor.output(message)
 
     def handle(self, action):
         if action == 'add':

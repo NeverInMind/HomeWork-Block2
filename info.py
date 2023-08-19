@@ -25,6 +25,16 @@ class Record:
         return result.days
 
 
+class ConsoleOutputAbstract(ABC):
+    def output(self, text: str, *args) -> str:
+        ...
+
+
+class TerminalOutput(ConsoleOutputAbstract):
+    def output(self, text: str, *args) -> None:
+        print(f"Send {text} to console")
+        
+
 class Field(ABC):
 
     @abstractmethod
