@@ -1,6 +1,5 @@
 from AddressBook import *
 
-
 class Bot:
     def __init__(self,  command_output: ConsoleOutputAbstract):
         self.book = AddressBook()
