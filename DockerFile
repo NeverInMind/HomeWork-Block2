@@ -8,11 +8,16 @@ WORKDIR /app
 # Скопіюємо інші файли в робочу директорію контейнера
 COPY . .
 
-# Встановимо залежності всередині контейнера
-RUN pip install -r requirements.txt
+RUN apt-get update \
+    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+ADD requirements.txt /application/
+ADD __main__.py /application/
+
+RUN pip install -r /application/requirements.txt
 
 # Позначимо порт, де працює застосунок всередині контейнера
 EXPOSE 5000
 
 # Запустимо наш застосунок всередині контейdoнера
-ENTRYPOINT ["python", "./__main__.py"]
+CMD ["python", "./__main__.py"]
