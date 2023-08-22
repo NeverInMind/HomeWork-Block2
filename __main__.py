@@ -2,8 +2,7 @@ from Bot import Bot
 
 
 if __name__ == "__main__":
-    print('Hello. I am your contact-assistant. What should I do with your contacts?')
-    bot = Bot()
+    bot = Bot('Hello. I am your contact-assistant. What should I do with your contacts?')
     bot.book.load("auto_save")
     commands = ['Add', 'Search', 'Edit', 'Load', 'Remove', 'Save', 'Congratulate', 'View', 'Exit']
     while True:
