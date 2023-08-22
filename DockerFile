@@ -15,4 +15,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 
 # Запустимо наш застосунок всередині контейdoнера
-ENTRYPOINT ["python", "__main__.py"]
+ENTRYPOINT ["python", "./__main__.py"]
